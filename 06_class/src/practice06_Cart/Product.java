@@ -5,20 +5,19 @@ public class Product {
   // field
   private String name;
   private int price;
-
   
   // constructor
   public Product() {
     
   }
   
+  // method
   public Product(String name, int price) {
     super();
     this.name = name;
     this.price = price;
   }
 
-  // method
   public String getName() {
     return name;
   }
@@ -35,42 +34,8 @@ public class Product {
     this.price = price;
   }
   
+
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
 
 }
