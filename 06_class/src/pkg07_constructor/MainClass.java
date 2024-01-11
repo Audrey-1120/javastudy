@@ -14,7 +14,6 @@ public class MainClass {
    *    4) 매개변수(parameter) 처리는 일반 메소드와 동일하다. -- 생성자 overloading 가능.
    */
   
-  
   /*
    * 디폴트 생성자
    * 1. 생성자가 없는 클래스는 자동으로 디폴트 생성자가 사용된다.
