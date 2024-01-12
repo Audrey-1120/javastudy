@@ -59,8 +59,8 @@ public class Customer {
     
     // 구매 결과 처리
     if(breadChange != null) { // * 그러므로 null 처리를 해주어야 한다.
-      count += breadChange.getBread();
-      money += breadChange.getChange();
+      this.count += breadChange.getBread();
+      this.money += breadChange.getChange();
       this.money -= money;
     }
     
