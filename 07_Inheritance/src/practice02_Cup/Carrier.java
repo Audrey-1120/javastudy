@@ -5,7 +5,7 @@ public class Carrier {
   private Cup[] cups;
   private int idx;  // cups 배열의 인덱스
   
-  public Carrier(int cupCount) {
+  public Carrier(int cupCount) { // 왜 idx라고 안하고 cupCount라고 하지????....
     cups = new Cup[cupCount];
   }
   

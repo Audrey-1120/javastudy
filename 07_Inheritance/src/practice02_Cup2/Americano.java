@@ -1,11 +1,10 @@
-package practice02_Cup;
+package practice02_Cup2;
 
-public class Americano extends Coffee {
+public class Americano extends Coffee{
   
-  @Override 
+  @Override
   public void whoami() {
     System.out.println("아메리카노");
   }
-
 
 }

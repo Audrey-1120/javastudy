@@ -2,14 +2,17 @@ package practice03_Bus;
 
 public class Bus {
   
+  //field
   public final static int MAX_SEAT = 25; // 버스는 25인승
   private Person[] seats; 
   private int idx;
 
+  //constructor
   public Bus() { //이미 MAX_SEAT는 정해져 있으므로...
     
   }
   
+  //method
   public void addSeat(Person person) {
     // 좌석이 가득 찼을 때
     if(idx >= MAX_SEAT) {

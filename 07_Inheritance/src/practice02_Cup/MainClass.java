@@ -3,6 +3,7 @@ package practice02_Cup;
 public class MainClass {
 
   public static void main(String[] args) {
+    
     Cup cup1 = new Cup();
     cup1.fill(new Americano());
     
@@ -13,6 +14,8 @@ public class MainClass {
     carrier.addCup(cup1);
     carrier.addCup(cup2);
     carrier.whoami();
+    
   }
+  
 
 }
