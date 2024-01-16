@@ -20,13 +20,12 @@ public class Book {
   private String isbn;
   private String title;
   
-  //constructor
   public Book() {
-
+    
   }
 
   public Book(String isbn, String title) {
-    super();  // Object() { }
+    super();
     this.isbn = isbn;
     this.title = title;
   }
@@ -48,7 +47,7 @@ public class Book {
     this.title = title;
   }
 
-  @Override 
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -59,7 +58,7 @@ public class Book {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj) 
+    if (this == obj)
       return true;
     if (obj == null)
       return false;
@@ -83,6 +82,18 @@ public class Book {
   public String toString() {
     return "Book [isbn=" + isbn + ", title=" + title + "]";
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

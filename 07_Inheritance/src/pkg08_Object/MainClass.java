@@ -4,24 +4,20 @@ public class MainClass {
 
   public static void main(String[] args) {
     
-    // Object 타입의 Book 객체
     Object obj = new Book("979-11-6224-187-5", "혼공자");
     
-    // Object 타입의 Book 객체를 Book 타입으로 캐스팅한 뒤 메소드 호출하기
     System.out.println(((Book) obj).getIsbn());
     System.out.println(((Book) obj).getTitle());
     
-    // Object obj 와 내용이 동일한 Book 객체
     Book book = new Book("979-11-6224-187-5", "혼공자");
     
-    System.out.println(obj.equals(book));   // 객체 obj와 객체 book이 동일하면 true 반환.
-    System.out.println(book.toString());    // "객체명@참조값"을 반환.
-    System.out.println(book);               // toString() 메소드 호출은 생략할 수 있다.
+    System.out.println(obj.equals(book));
+    System.out.println(book.toString());
+    System.out.println(book);
+    System.out.println();
     
-    /* ****************************************************************************** */
-    
-    Student student1 = new Student(10101, "박대기");
-    Student student2 = new Student(10101, "박대기");
+    Student student1 = new Student(10101, "고길동");
+    Student student2 = new Student(10101, "고길동");
     
     System.out.println(student1.equals(student2));
     System.out.println(student1);
@@ -32,8 +28,8 @@ public class MainClass {
     student1.addBook(new Book("979-11-6224-187-8", "혼공요"));
     student1.addBook(new Book("979-11-6224-187-9", "혼공조"));
     
-    for( Book b : student1.getBooks()) {
-      if(b != null) { // Book 클래스에 Object 클래스의 toString 메소드 오버라이드
+    for(Book b : student1.getBooks()) {
+      if(b != null) {
         System.out.println(b);
       }
     }
@@ -42,13 +38,11 @@ public class MainClass {
     
     for(Book b : student1.getBooks()) {
       if(b != null) {
-        System.out.println(b);  // Book 클래스에 Object 클래스의 toString 메소드 오버라이드
+        System.out.println(b);
       }
     }
     
-    
-    
-    
+ 
     
   }
 

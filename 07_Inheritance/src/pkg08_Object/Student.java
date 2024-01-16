@@ -8,11 +8,11 @@ public class Student {
   private Book[] books;
   private int bookCount;
   
-  // constructor
+  //constructor
   public Student() {
     books = new Book[100];
   }
-  
+
   public Student(int stuNo, String name) {
     super();
     this.stuNo = stuNo;
@@ -20,7 +20,6 @@ public class Student {
     books = new Book[100];
   }
 
-   
   //method
   public int getStuNo() {
     return stuNo;
@@ -57,30 +56,24 @@ public class Student {
   
   // 책 등록
   public void addBook(Book book) {
-    
     if(bookCount >= books.length) {
       System.out.println("더 이상 책을 등록할 수 없습니다.");
       return;
     }
     
     books[bookCount++] = book;
-    
   }
   
   // 책 삭제
   public void removeBook(int idx) {
-    
     if(idx < 0 || idx >= bookCount) {
       System.out.println("잘못된 인덱스입니다.");
       return;
     }
     
-    System.arraycopy(books, idx+1, books, idx, bookCount- idx - 1);
+    System.arraycopy(books, idx + 1, books, idx, bookCount- idx - 1);
     bookCount--;
     books[bookCount] = null;
-    
-
-    
   }
   
   // 책 삭제 (오버로딩)
@@ -92,24 +85,23 @@ public class Student {
     }
     
     for(int i = 0; i < bookCount; i++) {
-      if(book.equals(books[i])) { //Book 클래스에 Object 클래스의 equals 메소드 오버라이드 해야 한다. (isbn이 같으면 true 반환)
+      if(book.equals(books[i])) {
         System.arraycopy(books, i+1, books, i, bookCount - i - 1);
         bookCount--;
         books[bookCount] = null;
         break;
       }
-
     }
+
+
     
   }
   
-  
-  
   /*
    * Object 클래스의 equals() 메소드 오버라이드
-   * stuNo 필드 값이 일치하면 true 반환 
+   * stuNo 필드 값이 일치하면 true 반환
    */
-
+  
   @Override
   public boolean equals(Object obj) {
     if(obj == null) return false;
@@ -117,19 +109,10 @@ public class Student {
     return this.stuNo == ((Student)obj).stuNo;
   }
   
-  
-  /*
-   * Object 클래스의 toString() 메소드 오버라이드
-   * "stuNo: 10101, name: 박대기" 형식의 문자열 반환
-   */
-  
   @Override
   public String toString() {
     return "stuNo: " + stuNo + ", name: " + name;
   }
-  
-  
-  
   
   
   
