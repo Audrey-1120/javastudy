@@ -11,7 +11,7 @@ public class Customer {
     
   }
 
-  public Customer(int money) { // 고객을 만들때 cart는 필요가 없다. 
+  public Customer(int money) { 
     super();
     this.money = money;
   }
@@ -35,28 +35,25 @@ public class Customer {
   // method
   
   
-  // 물건 넣기
-  public void addToCart(Product product) { //여기서 null 체크는 할 필요가? 없다. 왜냐하면 이미 cart가 하고 있다.
+  // 물건 담기
+  public void addToCart(Product product) throws RuntimeException { 
     cart.addProduct(product);
   }
   
   // 물건 바꾸기
-  public void changeCart(int idx, Product product) {
+  public void changeCart(int idx, Product product) throws RuntimeException {
     cart.changeProduct(idx, product);
   }
   
   // 물건 빼기
-  public void removeCart(int idx) {
+  public void removeCart(int idx) throws RuntimeException {
     cart.removeProduct(idx);
   }
   
   // 구매 영수증
   // 반환 : 영수증
-  public String buy() {
+  public String buy() throws RuntimeException {
     
-    // for(int i = 0; i < cart.getCount(); i++)
-    // 위 코드에서는 cart의 getCount 메소드를 계속해서 호출한다. -> 몇번인지 한번만 알면 되는데..
-    // 그래서 초기화식으로 옮긴다! -> 성능이 더 좋아짐.
     
     String receipt = "영수증\n";
     int total = 0;
@@ -71,8 +68,7 @@ public class Customer {
       
       // 구매 가능 여부 체크
       if(money < total) {
-        System.out.println("구매 금액이 부족합니다.");
-        return null;
+        throw new RuntimeException("구매 금액이 부족합니다.");
       }
       
       // 영수증 만들기

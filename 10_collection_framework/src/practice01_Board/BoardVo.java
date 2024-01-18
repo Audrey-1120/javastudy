@@ -18,8 +18,6 @@ public class BoardVo {
     this.writer = writer;
     this.createdAt = createdAt;
   }
-  
-  
 
   public int getBoardNo() {
     return boardNo;
@@ -57,6 +55,8 @@ public class BoardVo {
   public String toString() {
     return "BoardVo [boardNo=" + boardNo + ", title=" + title + ", writer=" + writer + ", createdAt=" + createdAt + "]";
   }
+  
+  
   
   
 

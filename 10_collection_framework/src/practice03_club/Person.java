@@ -1,15 +1,13 @@
-package practice04_club;
+package practice03_club;
 
 public class Person {
-  
+
   private String id;
   
   public Person() {
 
   }
 
-  
-  
   public Person(String id) {
     super();
     this.id = id;
@@ -28,8 +26,6 @@ public class Person {
     return "Person [id=" + id + "]";
   }
 
-
-
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -37,8 +33,6 @@ public class Person {
     result = prime * result + ((id == null) ? 0 : id.hashCode());
     return result;
   }
-
-
 
   @Override
   public boolean equals(Object obj) {
@@ -56,11 +50,6 @@ public class Person {
       return false;
     return true;
   }
-  
-  
-  
-  
-  
   
   
 

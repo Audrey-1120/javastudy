@@ -1,4 +1,4 @@
-package practice04_club;
+package practice03_club;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +16,7 @@ public class Club {
   }
   
   public void leaveClub(Person person) {
-    pool.remove(person);
+    pool.add(person);
   }
   
   public void poolList() {
@@ -24,5 +24,6 @@ public class Club {
       System.out.println(person);
     }
   }
+  
 
 }

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainClass {
-  
+
   /*
    * ArrayList 클래스
    * 1. 배열 리스트를 구현한 클래스이다.
@@ -14,14 +14,14 @@ public class MainClass {
    *    1) 순서대로 데이터가 저장된다.
    *    2) 인덱스를 가지고 있다.
    */
-  
+
   public static void method1() {
     
     // ArrayList 선언 (사용 가능 타입 : Collection<E>, List<E>, ArrayList<E>)
-    List<Integer> numbers;  // int[] numbers;
+    List<Integer> numbers;               // int[] numbers;
     
     // ArrayList 생성
-    numbers = new ArrayList<Integer>();   // numbers = new int[10];
+    numbers = new ArrayList<Integer>();  // number = new int[10];
     
     // 요소 추가하기
     numbers.add(5);
@@ -31,13 +31,12 @@ public class MainClass {
     numbers.add(1);
     
     // 요소 가져오기
-    System.out.println(numbers.get(0));
-    System.out.println(numbers.get(1));
-    System.out.println(numbers.get(2));
-    System.out.println(numbers.get(3));
-    System.out.println(numbers.get(4));
+    System.out.println(numbers.get(0));  // 5
+    System.out.println(numbers.get(1));  // 4
+    System.out.println(numbers.get(2));  // 3
+    System.out.println(numbers.get(3));  // 2
+    System.out.println(numbers.get(4));  // 1
     
-
   }
 
   public static void method2() {
@@ -55,25 +54,25 @@ public class MainClass {
     // 저장된 요소의 개수
     System.out.println(hobbies.size());
     
-    // for문
-    for(int i = 0, count = hobbies.size(); i < count; i++) {
+    // for 문
+    for(int i = 0, size = hobbies.size(); i < size; i++) {
       System.out.println(hobbies.get(i));
     }
-    
     
   }
 
   public static void method3() {
     
-    // 배열을 ArrayList로 바꾸기
+    // 배열을 List로 바꾸기
     Integer[] arr = new Integer[] {10, 20, 30};
     
-    // 배열을 List로 바꿔서 반환하는 Arrays 클래스의 asList 메소드
+    // 배열을 List로 바꿔서 반환하는 java.util.Arrays 클래스의 asList 메소드
     List<Integer> numbers = Arrays.asList(arr);
     
     // 주의!
-    // numbers는 길이를 변경할 수 없다. -> 추가, 삭제가 안됨.
-    System.out.println(numbers);  // toString 메소드 생략
+    // numbers는 길이를 변경할 수 없다. (추가, 삭제 불가)
+    System.out.println(numbers.toString());
+    System.out.println(numbers);             // toString 메소드 생략
     
   }
   
@@ -95,7 +94,9 @@ public class MainClass {
     System.out.println(removeItem);
     
     System.out.println(seasons);
+    
   }
+  
   
   public static void main(String[] args) {
     method4();
