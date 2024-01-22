@@ -12,7 +12,5 @@ public class Class02_SimpleDateFormat {
     String result = sdf.format(date);
     System.out.println(result);
     
-    
-    
   }
 }

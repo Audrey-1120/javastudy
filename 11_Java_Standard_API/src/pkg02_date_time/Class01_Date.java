@@ -11,9 +11,9 @@ public class Class01_Date {
     Date date1 = new Date();
     System.out.println(date1);
     
-    Date date2 = new Date(1000 * 60 * 60 * 24 * 30);   // long 타입의 날짜? -> timestamp
+    Date date2 = new Date(1000 * 60 * 60 * 24 * 30L);  // 1970-01-31
     System.out.println(date2);
-    
+
   }
   
 }

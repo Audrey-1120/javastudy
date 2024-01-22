@@ -2,6 +2,9 @@ package pkg02_date_time;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class Class04_LocalDateTime {
   
@@ -16,15 +19,16 @@ public class Class04_LocalDateTime {
     
     // 1. 현재 날짜와 시간
     LocalDateTime dateTime1 = LocalDateTime.now();
-//    System.out.println(dateTime1);
+    System.out.println(dateTime1);
     
     // 2. 특정 날짜와 시간
     LocalDateTime dateTime2 = LocalDateTime.of(2024, 1, 18, 16, 13, 30, 123456789);
-//    System.out.println(dateTime2);
+    System.out.println(dateTime2);
     
     // 3. 문자열 형식의 날짜와 시간
     LocalDateTime dateTime3 = LocalDateTime.parse("2024-01-18T16:13:30.123456789");
     System.out.println(dateTime3);
+
     
   }
 
@@ -35,7 +39,7 @@ public class Class04_LocalDateTime {
     
     // 각 단위 가져오기
     int year = now.getYear();
-    int month = now.getMonthValue();  // 1 ~ 12
+    int month = now.getMonthValue();
     int day = now.getDayOfMonth();
     int hour = now.getHour();
     int minute = now.getMinute();
@@ -50,17 +54,16 @@ public class Class04_LocalDateTime {
     System.out.println(second);
     System.out.println(nano);
     
-    
   }
 
   public static void method3() {
     
     // 원하는 날짜/시간 형식 지정하기
-    
     LocalDateTime now = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 E요일 HH시 mm분 ss초");
     String result = formatter.format(now);
     System.out.println(result);
+
   }
   
   public static void main(String[] args) {

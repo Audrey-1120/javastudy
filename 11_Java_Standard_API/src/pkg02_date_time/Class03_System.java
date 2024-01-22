@@ -14,22 +14,21 @@ public class Class03_System {
     System.out.println(sdf.format(timestamp));
     
     // 2. 특정 시간을 nano 초 단위로 가져오기
-    // 2개의 시간을 가져와서 차이를 구할 때 사용한다. -> 스탑워치 같은거.
-    long start = System.nanoTime(); // hello world 출력 직전 시간
+    // 2개의 시간을 가져와서 차이를 구할 때 사용한다.
+    long start = System.nanoTime();
     System.out.println("hello world");
-    long end = System.nanoTime(); // hello world 출력 직후 시간
-    System.out.println(end - start + "㎱");
-    
+    long end = System.nanoTime();
+    System.out.println(end - start + "ns");
     
     // String vs StringBuilder 성능 테스트 연습
     practice01();
     practice02();
-    
+
   }
   
   public static void practice01() {
     
-    // String을 이용한 문자열 연결(+ 연산자)
+    // String 을 이용한 문자열 연결 (+ 연산자)
     
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     String result = "";
@@ -40,13 +39,14 @@ public class Class03_System {
     }
     long end = System.nanoTime();
     
+    System.out.println(result);
     System.out.println("String의 + 연산자 : " + (end - start) + "ns");
     
-    
   }
-  
+
   public static void practice02() {
-    // StringBuilder를 이용한 문자열 연결 (append) 메소드
+    
+    // StringBuilder 를 이용한 문자열 연결 (append 메소드)
     
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     StringBuilder builder = new StringBuilder();
@@ -61,7 +61,5 @@ public class Class03_System {
     System.out.println("StringBuilder의 append 메소드 : " + (end - start) + "ns");
     
   }
-  
-  
 
 }

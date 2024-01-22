@@ -3,11 +3,11 @@ package pkg01_string;
 public class Class02_StringBuilder {
   
   /*
-   *            StringBuffer      StringBuilder
-   *  since     JDK 1.0           JDK 1.5
-   *  thread    multi thread      single thread
-   *  speed     slow              fast
-   *  
+   *         | StringBuffer    | StringBuilder
+   * --------|-----------------|--------------
+   *  since  | JDK 1.0         | JDK 1.5
+   *  thread | multiple thread | single thread
+   *  speed  | slow            | fast
    */
   
 
@@ -20,13 +20,14 @@ public class Class02_StringBuilder {
     builder.append("바");
     builder.append("나");
     builder.append("나");
+
     
     // String 객체로 바꾸기
     // 1. new String(builder)
     // 2. builer.toString() 채택!!
-    
     String result = builder.toString();
     System.out.println(result);
+
     
     
     
