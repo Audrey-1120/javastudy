@@ -1,6 +1,7 @@
 package practice02_Lotto;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,7 +20,12 @@ public class Lotto {
     
     /* 여기에 구현 */
     
-    return 0;  // 리턴 값 바꿀 것
+    int money = sc.nextInt();
+    if(money < 1000 || money > 100000) {
+      System.out.println("로또 구매 비용은 최소 1000, 최대 100000 입니다.");
+    }
+    // money % 1000이 0보다 크다면, 몫+1000, 0이라면 몫만 반환
+    return money /= 1000 + (money % 1000 > 0 ? 1000 : 0); // 리턴 값 바꿀 것
     
   }
   
@@ -57,6 +63,25 @@ public class Lotto {
      */
     
     List<String> papers = new ArrayList<String>();
+    // 로또 구매 횟수 = money / 1000
+    // 만약에 20000원을 냈다고 하자. 그러면 20000 / 1000 = 20번이다. 로또는 5줄씩 한장에 출력하므로 20 / 5는 4장 = papers의 요소 개수이다.
+    /*
+     * money
+     * 로또 한줄(lottoNum) = money / 1000
+     * papers의 요소 개수 = lottoNum / 5;
+     */
+    
+    // 1. lotto의 배열을 생성
+    String[] lotto = {"1", "2", "3", "4", "5", "6"};
+    
+    // 2. lottoNum의 개수를 구해서 그만큼 ArraryList에 추가
+    int lottoNum = money / 1000;
+    for(int i = 0; i < lottoNum; i++) {
+      
+    }
+    
+    
+    
     
     /* 여기에 구현 */
        
