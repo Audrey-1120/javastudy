@@ -129,7 +129,7 @@ public class MainClass {
     
   }
   
-  public static void method3() {
+public static void method3() {
     
     File dir = new File("\\Storage");
     File file = new File(dir, "sample3.html");

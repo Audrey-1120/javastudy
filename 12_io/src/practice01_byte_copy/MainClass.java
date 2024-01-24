@@ -5,7 +5,7 @@ public class MainClass {
   public static void main(String[] args) {
 
     MyFileUtils.fileCopy("\\Program Files\\Java\\jdk-17\\LICENSE", "\\Storage\\LISENSE");
-    MyFileUtils.fileMove("\\Storage\\LISENSE", "\\GDJ77\\LISENSE");
+    MyFileUtils.fileMove("\\storage\\LICENSE", "\\GDJ77\\LICENSE");
   }
 
 }
