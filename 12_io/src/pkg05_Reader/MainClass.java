@@ -6,6 +6,11 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class MainClass {
 
@@ -129,7 +134,7 @@ public class MainClass {
     
   }
   
-public static void method3() {
+  public static void method3() {
     
     File dir = new File("\\Storage");
     File file = new File(dir, "sample3.html");
@@ -166,8 +171,87 @@ public static void method3() {
     
   }
   
+  public static void method4() {
+    
+    File dir = new File("\\Storage");
+    File file = new File(dir, "sample2.txt");
+    
+    BufferedReader in = null;
+    
+    try {
+      
+      in = new BufferedReader(new FileReader(file));
+      
+      StringBuilder builder = new StringBuilder();
+      
+      in.lines().forEach((line) -> builder.append(line).append("\n"));
+      
+      in.close();
+      
+      System.out.println(builder.toString());
+      
+      
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    
+  }
+
+  public static void method5() {
+    
+    // JAVA_HOME 파일명 출력하기
+    
+    File javaHome = new File("\\Program Files\\Java\\jdk-17");
+    File[] files = javaHome.listFiles();
+    Stream<File> stream = Arrays.stream(files);
+    stream.forEach((file) -> System.out.println(file.getName()));
+    
+    try {
+      Path path = Paths.get("\\Program Files\\Java\\jdk-17");
+      Stream<Path> stream2 = Files.list(path);
+      stream2.forEach((p) -> System.out.println(p.getFileName()));
+      
+      stream2.close();
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+    BufferedReader in = null;
+    
+    try {
+      for(File file : files) {
+        
+        in = new BufferedReader(new FileReader(file));
+        
+        StringBuilder builder = new StringBuilder();
+        
+        in.lines().forEach((line) -> builder.append(line).append("\n"));
+        
+        in.close();
+        
+        System.out.println(builder.toString());
+        
+      }
+      
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+      
+    */ 
+  }
+ 
+    
   public static void main(String[] args) {
-    method3();
+    method5();
     
     
     
