@@ -21,7 +21,7 @@ public class MainClass {
    */
   
   public static void method1() {
-    
+     
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
