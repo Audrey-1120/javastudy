@@ -29,7 +29,7 @@ public class MainClass {
     
   public static void main(String[] args) {
     
-    // method1();
+    method1();
     
     /*
     Supplier<String> supplier = () -> "hello world";
