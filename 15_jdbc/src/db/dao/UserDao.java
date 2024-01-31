@@ -29,9 +29,9 @@ import db.dto.UserDto;
 public class UserDao {
   
   // Singleton Pattern
-  private UserDao() {};
+  private UserDao() {}
   private static UserDao userDao = new UserDao();
-  public static UserDao getInstance() {
+  public static UserDao getInstance() { // 만들어놓은 객체를 반환시켜줌.
     return userDao;
   }
   // 외부에서는 getInstance를 호출하는 것이 불가능하다. 왜냐하면 객체를 생성하는 생성자 자체를 부를 수 없음 -> 객체 못만듬 -> 메소드 호출 안됨!!
@@ -43,23 +43,27 @@ public class UserDao {
   
   // private 메소드 (UserDao 내부에서 호출할 메소드)
   private void connection() {
-    
+   
     try {
       
       Class.forName("oracle.jdbc.OracleDriver");
       String url = System.getProperty("jdbc.url");
       String user = System.getProperty("jdbc.user");
       String password = System.getProperty("jdbc.password");
+      
       con = DriverManager.getConnection(url, user, password);
       
     } catch (ClassNotFoundException e) {
       System.out.println("OracleDriver 클래스 로드 실패");
-    } catch (SQLException e) {
-     System.out.println("데이터베이스 접속 실패");
-    }   
+    } catch(SQLException e) {
+      System.out.println("데이터베이스 접속 실패");
+    }
+    
+    
   }
 
   private void close() {
+  
     try {
       if(rs != null) rs.close();
       if(ps != null) ps.close();
@@ -67,11 +71,12 @@ public class UserDao {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    
   }
   
   // public 메소드 (실제 기능을 담당하는 메소드)
   
-  // 모든 사용자 조회하기 : getUsers, getUserList 등 
+  // 모든 사용자 조회하기 : selectUsers, selectUserList, getUsers, getUserList 등
   public List<UserDto> getUsers() {
     
     List<UserDto> users = new ArrayList<UserDto>();
@@ -101,8 +106,7 @@ public class UserDao {
     
   }
   
-  
-  // 특정 사용자 조회하기 : getUser, getUserByNo 등
+  // 특정 사용자 조회하기 : selectUser, selectUserByNo, getUser, getUserByNo 등
   public UserDto getUser(int user_no) {
     
     UserDto userDto = null;
@@ -127,12 +131,12 @@ public class UserDao {
     } finally {
       close();
     }
-       
+    
     return userDto;
+    
   }
   
-  
-  // 사용자 등록 : insertUser, saveUser, registerUser 등
+  // 사용자 등록 : insertUser, saveUser, regiterUser 등
   public int saveUser(UserDto userDto) {
     
     int result = 0;
@@ -142,7 +146,6 @@ public class UserDao {
       connection();
       String sql = "INSERT INTO USER_T (USER_NO, USER_NAME, USER_TEL, JOIN_DT) VALUES(USER_SEQ.NEXTVAL, ?, ?, TO_CHAR(CURRENT_DATE, 'YYYY-MM-DD'))";
       ps = con.prepareStatement(sql);
-      
       ps.setString(1, userDto.getUser_name());
       ps.setString(2, userDto.getUser_tel());
       result = ps.executeUpdate();
@@ -153,46 +156,36 @@ public class UserDao {
       close();
     }
     
-    
     return result;
-        
+    
   }
-  
   
   // 사용자 수정 : updateUser, modifyUser 등
   public int modifyUser(UserDto userDto) {
-    
+
     int result = 0;
     
     try {
-    
-      connection();
       
+      connection();
       String sql = "UPDATE USER_T"
                  + "   SET USER_NAME = ?, USER_TEL = ?"
                  + " WHERE USER_NO = ?";
-      
       ps = con.prepareStatement(sql);
-
       ps.setString(1, userDto.getUser_name());
       ps.setString(2, userDto.getUser_tel());
       ps.setInt(3, userDto.getUser_no());
       result = ps.executeUpdate();
-
+      
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
-      try {
-        close();
-      } catch (Exception e2) {
-        e2.printStackTrace();
-      }
-    } 
+      close();
+    }
     
     return result;
-
+    
   }
-  
   
   // 사용자 삭제 : deleteUser, removeUser 등
   public int removeUser(int user_no) {
@@ -202,47 +195,19 @@ public class UserDao {
     try {
       
       connection();
-      
       String sql = "DELETE FROM USER_T WHERE USER_NO = ?";
-      
       ps = con.prepareStatement(sql);
-      
       ps.setInt(1, user_no);
-      
       result = ps.executeUpdate();
-      System.out.println(result + "행이 삭제 되었습니다!!");
-      
       
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
-      try {
-        close();
-      } catch (Exception e2) {
-        e2.printStackTrace();
-      }
+      close();
     }
-
+    
     return result;
     
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 }
