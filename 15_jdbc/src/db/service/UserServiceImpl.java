@@ -17,12 +17,10 @@ public class UserServiceImpl implements UserService {
   // field
   private UserDao userDao;
   
-  // constructor
   public UserServiceImpl() {
-    userDao = UserDao.getInstance(); // userDao는 싱글톤 패턴이기 때문에 클래스 타입 getInstance() 메소드로 객체를 호출해야 한다.
-    // 클래스 이름.호출메소드();
+    userDao = UserDao.getInstance();
   }
-  
+
   @Override
   public List<UserDto> getUsers() {
     return userDao.getUsers();
@@ -47,5 +45,8 @@ public class UserServiceImpl implements UserService {
   public int removeUser(int user_no) {
     return userDao.removeUser(user_no);
   }
+  
+  
+
 
 }
